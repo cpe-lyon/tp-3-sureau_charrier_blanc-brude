@@ -3,12 +3,18 @@
 ## Exercice 1 : Commandes de base
 
 Commencez par mettre à jour votre système avec les commandes vues dans le cours.
+
+sudo apt full-upgrade
+
+puis
+
+sudo apt-get update
+
 Donnez les commandes répondant aux questions suivantes :
 
 _1. Quels sont les 5 derniers paquets installés sur votre machine ?_
 
-dpkg -l | tail -5
-xkb-data / xxd / xz-utils / zerofree / zlib1g:amd64
+
 
 _2. Utiliser dpkg et apt pour compter le nombre de paquets installés (ne pas hésiter à consulter le manuel !).
 Comment explique-t-on la (petite) différence de comptage ?_
