@@ -67,6 +67,23 @@ commande, pour n’importe quel programme (indice : la réponse est dans le poly
 commandes utiles) ? Utilisez la réponse à pour écrire un script appelé origine-commande (sans l’extension
 .sh) prenant en argument le nom d’une commande, et indiquant quel paquet l’a installée.
 
+dpkg -S $(which -a ls)
+
+--> coreutils
+
+Pour le script :
+
+nano ~/script/origin-commande
+
+
+#!/bin/bash
+
+echo $(dpkg -S $(which -a $1))
+
+
+chmod a+x origin-commande 
+
+
 ## Exercice 3.
 
 Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
