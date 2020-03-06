@@ -98,14 +98,40 @@ chmod a+x origin-commande
 Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
 spécifié dans cette commande.
 
+```javascript
+touch i_or_ni
+```
+```javascript
+#!/bin/bash
+(dpkg -l "$1" | grep "^ii") && echo "installed" || echo "not installed"
+```
+```javascript
+chmod u+x i_or_ni 
+```
+
 ## Exercice 4.
 
 Lister les programmes livrés avec coreutils. A quoi sert la commande '' et comment afficher ce qu’elle
 retourne ?
 
+```javascript
+apt show coreutils
+```
+La commande sert à remplacer la commande test. (gain de temps) 
+
 ## Exercice 5. aptitude
 
 Installez le paquet emacs à l’aide de la version graphique d’aptitude.
+
+```javascript
+sudo apt aptitude
+```
+```javascript
+sudo aptitude
+```
+
+MAJ+/ : emacs
+Selection avec + puis installation avec g*
 
 ## Exercice 6. Installation d’un paquet par PPA
 
