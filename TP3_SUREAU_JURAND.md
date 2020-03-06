@@ -4,11 +4,11 @@
 
 Commencez par mettre à jour votre système avec les commandes vues dans le cours.
 
-```javascript
+```
 sudo apt full-upgrade
 ``` 
 puis
-```javascript
+```
 sudo apt-get update 
 ``` 
 (dù au message d'erreur)
@@ -16,25 +16,25 @@ sudo apt-get update
 Donnez les commandes répondant aux questions suivantes :
 
 _1. Quels sont les 5 derniers paquets installés sur votre machine ?_
-```javascript
+```
 cd /var/log
 tail -n 5 dpkg.log
 ```
 _2. Utiliser dpkg et apt pour compter le nombre de paquets installés (ne pas hésiter à consulter le manuel !).
 Comment explique-t-on la (petite) différence de comptage ?_
 
-```javascript
+```
 dpkg -l | grep "ii" | wc -l 
 
 apt list --installed | wc -l
 ```
 
-La difference de comptage vient de la première ligne, considéré comme un paquet par un et comme une information par l'autre.
+La difference de comptage vient de la première ligne, considérée comme un paquet par un et comme une information par l'autre.
 
 
 _3. Combien de paquets sont disponibles en téléchargement ?_
 
-```javascript
+```
 apt list | wc -l
 ```
 
@@ -43,19 +43,19 @@ _4. Créer un alias “maj” qui met à jour le système_
 On ajoute à 
 
 .bash_aliases 
-```javascript
+```
 alias maj="sudo apt full-upgrade"
 ```
 _5. A quoi sert le paquet fortunes ? Installez-le._
-```javascript
+```
 apt show fortunes
 ```
 Affiche des citations d'une certaine manière.
-```javascript
+```
 sudo apt install fortunes
 ```
 _6. Quels paquets proposent de jouer au sudoku ?_
-```javascript
+```
 apt list | grep sudoku
 ```
 On retrouve le nom des paquets du sudoku
@@ -63,7 +63,7 @@ On retrouve le nom des paquets du sudoku
 gnome-sudoku / ksudoku / sudoku
 
 _7. Lister les derniers paquets installés explicitement avec la commande apt install_
-```javascript
+```
 grep apt install /var/log/apt/history.log
 ```
 ## Exercice 2.
@@ -72,23 +72,23 @@ A partir de quel paquet est installée la commande ls ? Comment obtenir cette in
 commande, pour n’importe quel programme (indice : la réponse est dans le poly de cours 2, dans la liste des
 commandes utiles) ? Utilisez la réponse à pour écrire un script appelé origine-commande (sans l’extension
 .sh) prenant en argument le nom d’une commande, et indiquant quel paquet l’a installée.
-```javascript
+```
 dpkg -S $(which -a ls)
 ```
 --> coreutils
 
 Pour le script :
 
-``` javascript
+```
 
 nano ~/script/origin-commande
 ```
-```javascript
+```
 #!/bin/bash
 
 echo $(dpkg -S $(which -a $1))
 ```
-```javascript
+```
 chmod a+x origin-commande 
 
 ``` 
@@ -98,14 +98,14 @@ chmod a+x origin-commande
 Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
 spécifié dans cette commande.
 
-```javascript
+```
 touch i_or_ni
 ```
-```javascript
+```
 #!/bin/bash
 (dpkg -l "$1" | grep "^ii") && echo "installed" || echo "not installed"
 ```
-```javascript
+```
 chmod u+x i_or_ni 
 ```
 
@@ -114,7 +114,7 @@ chmod u+x i_or_ni
 Lister les programmes livrés avec coreutils. A quoi sert la commande '' et comment afficher ce qu’elle
 retourne ?
 
-```javascript
+```
 apt show coreutils
 ```
 La commande sert à remplacer la commande test. (gain de temps) 
@@ -123,10 +123,10 @@ La commande sert à remplacer la commande test. (gain de temps)
 
 Installez le paquet emacs à l’aide de la version graphique d’aptitude.
 
-```javascript
+```
 sudo apt aptitude
 ```
-```javascript
+```
 sudo aptitude
 ```
 
