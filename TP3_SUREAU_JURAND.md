@@ -82,13 +82,13 @@ Pour le script :
 ``` javascript
 
 nano ~/script/origin-commande
-
-
+```
+```javascript
 #!/bin/bash
 
 echo $(dpkg -S $(which -a $1))
-
-
+```
+```javascript
 chmod a+x origin-commande 
 
 ``` 
