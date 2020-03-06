@@ -80,10 +80,9 @@ dpkg -S $(which -a ls)
 Pour le script :
 
 ```
-
 nano ~/script/origin-commande
 ```
-```
+```javascript
 #!/bin/bash
 
 echo $(dpkg -S $(which -a $1))
@@ -101,7 +100,7 @@ spécifié dans cette commande.
 ```
 touch i_or_ni
 ```
-```
+```javascript
 #!/bin/bash
 (dpkg -l "$1" | grep "^ii") && echo "installed" || echo "not installed"
 ```
@@ -146,6 +145,8 @@ sudo apt install oracle-java11-installer
 
 _2. Vérifiez qu’un nouveau fichier a été créé dans /etc/apt/sources.list.d. Que contient-il ?_
 
+Lien web vers le PPA.
+
 ## Exercice 7. Création de dépôt personnalisé
 
 Dans cet exercice, vous allez créer vos propres paquets et dépôts, ce qui vous permettra de gérer les
@@ -173,6 +174,8 @@ commande suivante pour construire le paquet :_
 dpkg-deb --build origine-commande
 
 Félicitations ! Vous avez créé votre propre paquet !
+
+RAS
 
 ### Création du dépôt personnel avec reprepro
 
