@@ -8,28 +8,57 @@ sudo apt full-upgrade
 
 puis
 
-sudo apt-get update
+sudo apt-get update (dù au message d'erreur)
 
 Donnez les commandes répondant aux questions suivantes :
 
 _1. Quels sont les 5 derniers paquets installés sur votre machine ?_
 
+cd /var/log
 
+tail -n 5 dpkg.log
 
 _2. Utiliser dpkg et apt pour compter le nombre de paquets installés (ne pas hésiter à consulter le manuel !).
 Comment explique-t-on la (petite) différence de comptage ?_
 
+dpkg -l | grep "ii" | wc -l 
+
+apt list --installed | wc -l
+
+La difference de comptage vient de la première ligne, considéré comme un paquet par un et comme une information par l'autre.
 
 
 _3. Combien de paquets sont disponibles en téléchargement ?_
 
+apt list | wc -l
+
 _4. Créer un alias “maj” qui met à jour le système_
+
+On ajoute à 
+
+.bash_aliases 
+
+alias maj="sudo apt full-upgrade"
 
 _5. A quoi sert le paquet fortunes ? Installez-le._
 
+apt show fortunes
+
+Affiche des citations d'une certaine manière.
+
+sudo apt install fortunes
+
 _6. Quels paquets proposent de jouer au sudoku ?_
 
+apt list | grep sudoku
+
+On retrouve le nom des paquets du sudoku
+
+gnome-sudoku / ksudoku / sudoku
+
 _7. Lister les derniers paquets installés explicitement avec la commande apt install_
+
+grep apt install /var/log/apt/history.log
 
 ## Exercice 2.
 
